@@ -1,0 +1,281 @@
+/**
+* Wordfind.js 0.0.1
+* (c) 2012 Bill, BunKat LLC.
+* Wordfind is freely distributable under the MIT license.
+* For all details and documentation:
+*     http://github.com/bunkat/wordfind
+*/
+body{
+  font-family: 'Open Sans', sans-serif !important;
+  font-weight: 300 !important;
+  color: #666666 !important;
+  /* line-height: 2.3em !important; */
+  margin:2em !important;
+-webkit-user-select: none !important;
+-khtml-user-select: none !important;
+-moz-user-select: -moz-none !important;
+-ms-user-select: none !important;
+-o-user-select: none !important;
+user-select: none !important;
+min-width: 1000px !important;
+}
+.mostrar{
+opacity: 1.0;
+}
+
+.ocultar{
+width: 40px;
+background-color: #fff;
+border-radius: 5px;
+padding: 5px;
+display: inline-table;
+font-weight: bold;
+}
+
+
+p {
+  font: 22pt sans-serif;
+  margin: 20px 20px 0px 20px;
+}
+
+/**
+* Styles for the puzzle
+*/
+#juego {
+  /* border: 1px solid black; */
+  padding: 5px;
+ 
+  /* margin: 5px; */
+}
+
+#juego div {
+  /* width: 100%; */
+  margin: 0 auto;
+}
+
+/* style for each square in the puzzle */
+.puzzleSquare {
+  height: 30px;
+  width: 30px;
+  text-transform: uppercase;
+  background-color: rgb(214, 200, 200);
+  border: 0;
+  font: 1em sans-serif;
+}
+
+button::-moz-focus-inner {
+  border: 0;
+}
+
+/* indicates when a square has been selected */
+#juego .selected {
+  background-color: orange;
+}
+
+/* indicates that the square is part of a word that has been found */ 
+#juego .found {
+  background-color: blue;
+  color: white;
+}
+
+.subraya{
+  text-decoration: line-through ;
+  color:#9d7511 !important;
+}
+
+#juego .solved {
+  background-color: #dfbe64;
+  color: white;
+}
+
+/* indicates that all words have been found */
+#juego .complete {
+  background-color: #a8c0a8;
+}
+
+/**
+* Styles for the word list
+*/
+/* #Palabras {
+text-align: start!important;
+  padding: 10px 0;
+  background-color: #ededed;
+  border-radius: 10px;
+  column-count: 4;
+}
+
+#Palabras ul {
+  flex-direction: row;
+  list-style-type: none;
+  padding: 10px;
+}
+
+#Palabras li {
+  padding: 3px 0;
+  font: 1em sans-serif;
+  margin-top: 7px;
+}
+
+/* indicates that the word has been found */
+/*#Palabras .wordFound {
+color:black;
+
+} */
+
+.palabras {
+text-align: start!important;
+  padding: 10px 0;
+  /* margin-left: 50px;
+  margin-bottom: 20px;
+  margin-top: 20px; */
+  background-color: #ededed;
+  border-radius: 10px;
+  column-count: 4;
+}
+
+.palabras ul {
+  flex-direction: row;
+  list-style-type: none;
+  padding: 10px;
+}
+
+.palabras li {
+  padding: 3px 0;
+  font: 1em sans-serif;
+  margin-top: 7px;
+}
+
+/* indicates that the word has been found */
+.palabras .wordFound {
+text-decoration: line-through;
+  color: gray;
+}
+
+.parrafos {
+text-align: start!important;
+  padding: 10px 0;
+  /* margin-left: 50px;
+  margin-bottom: 20px;
+  margin-top: 20px; */
+  background-color: #ededed;
+  border-radius: 10px;
+}
+
+.parrafos ul {
+  flex-direction: row;
+  list-style-type: none;
+  padding: 10px;
+}
+
+.parrafos li {
+  padding: 3px 0;
+  font: 1em sans-serif;
+  margin-top: 7px;
+}
+
+/* indicates that the word has been found */
+.parrafos .wordFound {
+color:black;
+
+}
+
+
+/**
+* Styles for the button
+*/
+#solve, #again {
+  padding: 10px;
+  background-color:#0ea1c9;
+  margin: 30px;
+  color: azure;
+}
+
+.headings { /*nm*/
+	font-family: 'Open Sans', sans-serif;
+    color: #b1b1b1;
+    letter-spacing: 1px;
+    font-size: 1em;
+    margin: 0;
+}
+p {
+  font-family: 'Open Sans', sans-serif;
+  color: #666666;
+  font-size: 1.1em;
+  line-height: 1.8em;
+  font-weight: 300;
+  letter-spacing: .7px;
+  text-align: left;
+}
+.actividad {
+  max-width: 250px;
+  background: #b1b1b1;
+  padding: 5px;
+  border-radius: 20px;
+  text-align: center;
+  color: #fff!important;
+  margin-bottom: 15px !important;
+}
+.headings-int {
+  font-family: 'Open Sans', sans-serif;
+  color: #6c6b82;
+  letter-spacing: 1px;
+  font-size: 2em;
+  margin-top: 0;
+}
+.under-li {
+  border-bottom: solid #dbdbdb;
+  border-width: 3px;
+  padding-bottom: 9px;
+  width: 80%;
+}
+
+a{
+  padding:30px;
+}
+@media (max-width: 900px) {
+  .palabras,.parrafos {
+width: 500px;
+column-count: 3;
+  }
+}
+
+@media (max-width: 600px) {
+  .palabras,.parrafos {
+width: 300px;
+column-count: 2;
+  }
+}
+
+@media (max-width: 300px) {
+  .palabras,.parrafos {
+width: 200px;
+column-count: 1;
+  }
+}
+
+/*Reactivos solo letras
+#Parrafo{
+
+  padding: 10px 0;
+  column-count: 4;
+  background-color:black;
+  
+  border-radius: 10px;
+}
+
+#Palabras ul {
+  flex-direction: row;
+  list-style-type: none;
+}
+
+#Palabras li {
+  padding: 3px 0;
+  font: 1em sans-serif;
+}
+*/
+/* indicates that the word has been found 
+#Palabras .wordFound {
+  text-decoration: line-through;
+  color: gray;
+}
+*/
