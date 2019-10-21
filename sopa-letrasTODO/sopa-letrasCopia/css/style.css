@@ -179,6 +179,14 @@ color:black;
 
 }
 
+#countdown{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2vw;
+  background-color: #ededed;
+  border-radius: 10px;
+}
 
 /**
 * Styles for the button
@@ -279,3 +287,4 @@ column-count: 1;
   color: gray;
 }
 */
+

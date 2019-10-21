@@ -131,23 +131,26 @@ var patrono = creaColores(50);
     * @param {String} el: The jQuery element to write the words to
     * @param {[String]} words: The words to draw
     */
+
     var drawWords = function (el, words) {
       // patrono = patrono.sort(function() {return Math.random() - 0.5});
       var output = '<ul>';
       for (var i = 0, len = words.length; i < len; i++) {
        if(esParrafo == true){ 
         var word = words[i];
-        console.log(words);
+        var debugWords = words[i].sub();
         var oracion= parrlist[i];
         var contenido="";
         for(var m=0; m<oracion.length;m++){
           if(m==0){ 
             contenido+=""+(i+1)+".- ";
-              }
-   
+          }
     if(oracion.charAt(m)=="@") { 
-      contenido+='<span data-resp="'+word+'" class="word ' + word +' ocultar normal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>';
-     }
+        if(debugP == true){
+        contenido+='<span data-resp="'+word+'" class="word ' + word +' ocultar normal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>'+ debugWords;
+        }else
+        contenido+='<span data-resp="'+word+'" class="word ' + word +' ocultar normal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>';
+    }
     else{ contenido+=oracion.charAt(m); }
           }//for oracion
             output += '<li>'+contenido;
@@ -155,7 +158,6 @@ var patrono = creaColores(50);
       }else{//cuando solo son palabras     
           var word = words[i];
           output += '<li class="word ' + word + '">' + word;
-          
       }
     }//for words.length
       output += '</ul>';
@@ -163,7 +165,10 @@ var patrono = creaColores(50);
       bodyOriginal = document.body.innerHTML;
     };
 
-  
+    
+
+
+
     /**
     * Game play events.
     *
@@ -542,7 +547,6 @@ $(subraya[m]).addClass("subraya");
 var contenidopalabra=$(subraya[m]).attr("data-resp");
 $(subraya[m]).html(contenidopalabra);
 }
-
 
 
 

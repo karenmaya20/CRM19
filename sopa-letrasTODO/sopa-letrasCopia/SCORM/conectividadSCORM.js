@@ -180,7 +180,7 @@ var conectividadSCORM = function() {
             return avance;
         },
         obtenerDatosAvance: function() {
-            var totalObjetivos = API.LMSGetValue("cmi.objectives._count");
+            //var totalObjetivos = API.LMSGetValue("cmi.objectives._count");
             console.log("obtenerDatosAvance: Objetivos totales: " + totalObjetivos);
             var incremento = 100/totalObjetivos;
             var porcentaje = 0;

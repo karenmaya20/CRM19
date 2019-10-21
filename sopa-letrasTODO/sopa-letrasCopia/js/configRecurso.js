@@ -1,7 +1,8 @@
 var ambSCORM =false;
 var barraSCORM = false;
-var esParrafo = false;
-var debug = true;
+var esParrafo = true;
+var debugP = false;
+var tempo = true;
 var retroCal1 = [
 	{LimInf: 0, LimSup: 3, Mensaje: "No fue suficiente"},	
 	{LimInf: 4, LimSup: 7, Mensaje: "Esfuérzate más"},	
