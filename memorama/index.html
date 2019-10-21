@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head lang="es">
+    <meta charset="UTF-8">
+    <title>Juego de memoria</title>
+    <meta name="author" content="Adib Abud Jaso">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="css/estilos.css" />
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/listaReactivos.js"></script>
+    <script type="text/javascript" src="js/configRecurso.js"></script>
+    <script type="text/javascript" src="./SCORM/conectividadSCORM.js"></script>
+	<script type="text/javascript" src="./SCORM/conectividadSCORM.js"></script>
+	<script type="text/javascript" src="./SCORM/barraDeInfo.js"></script>
+
+
+    <script src="js/sweetalert.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/sweetalert.css" />
+
+    <script type="text/javascript">
+//<![CDATA[
+var html5_audiotypes={ 
+"mp3": "audio/mpeg",
+"mp4": "audio/mp4",
+"ogg": "audio/ogg",
+"wav": "audio/wav"
+}
+
+function escucharadui(){
+    var audioBien = document.getElementById('click1');
+    audioBien.play();
+
+}
+function voltear(){
+       
+            
+}
+
+function imagen (){
+    var texto="<img src='./imagenes/bocina.png' style='width: 80%; '/>";
+   document.writeln(texto);
+}
+
+
+function createsoundbite(sound){
+var html5audio=document.createElement('audio')
+if (html5audio.canPlayType){ //Comprobar soporte para audio HTML5
+for (var i=0; i<arguments.length; i++){
+var sourceel=document.createElement('source')
+sourceel.setAttribute('src', arguments[i])
+if (arguments[i].match(/.(w+)$/i))
+sourceel.setAttribute('type', html5_audiotypes[RegExp.$1])
+html5audio.appendChild(sourceel)
+}
+html5audio.load()
+html5audio.playclip=function(){
+html5audio.pause()
+html5audio.currentTime=0
+html5audio.play()
+}
+return html5audio
+}
+else{
+return {playclip:function(){throw new Error('Su navegador no soporta audio HTML5')}}
+}
+}
+
+//Inicializar sonidos
+var click1 = createsoundbite('audios/audio1_i1u2t10.mp3');
+var click2 = createsoundbite('audios/audio2_i1u2t10.mp3');
+var click3 = createsoundbite('audios/audio3_i1u2t10.mp3');
+var click4 = createsoundbite('audios/audio4_i1u2t10.mp3');
+var click5 = createsoundbite('audios/audio5_i1u2t10.mp3');
+var click6 = createsoundbite('audios/audio6_i1u2t10.mp3');
+var click7 = createsoundbite('audios/audio7_i1u2t10.mp3');
+var click8 = createsoundbite('audios/audio8_i1u2t10.mp3');
+var click9 = createsoundbite('audios/audio9_i1u2t10.mp3');
+var click10 = createsoundbite('audios/audio10_i1u2t10.mp3');
+var click11 = createsoundbite('audios/audio11_i1u2t10.mp3');
+var click12 = createsoundbite('audios/audio12_i1u2t10.mp3');
+var click13 = createsoundbite('audios/audio13_i1u2t10.mp3');
+var click14 = createsoundbite('audios/audio14_i1u2t10.mp3');
+var click15 = createsoundbite('audios/audio15_i1u2t10.mp3');
+var click16 = createsoundbite('audios/audio16_i1u2t10.mp3');
+var click17 = createsoundbite('audios/audio17_i1u2t10.mp3');
+var click18 = createsoundbite('audios/audio18_i1u2t10.mp3');
+var click19 = createsoundbite('audios/audio19_i1u2t10.mp3');
+var click20 = createsoundbite('audios/audio20_i1u2t10.mp3');
+var click21 = createsoundbite('audios/audio21_i1u2t10.mp3');
+var click22 = createsoundbite('audios/audio22_i1u2t10.mp3');
+var click23 = createsoundbite('audios/audio23_i1u2t10.mp3');
+var click24 = createsoundbite('audios/audio24_i1u2t10.mp3');
+var click25 = createsoundbite('audios/audio25_i1u2t10.mp3');
+var click26 = createsoundbite('audios/audio26_i1u2t10.mp3');
+var click27 = createsoundbite('audios/audio27_i1u2t10.mp3');
+var click28 = createsoundbite('audios/audio28_i1u2t10.mp3');
+var click29 = createsoundbite('audios/audio29_i1u2t10.mp3');
+var click30 = createsoundbite('audios/audio30_i1u2t10.mp3');
+//]]>
+// función que impide que solamente los elementos levantados y los correctos se escuchen
+function sonido (audiopro,dato){
+    var variable=document.getElementById(audiopro);
+
+    console.log(variable);
+
+    if (window.global < 2){
+ 
+         if (window.elemnto.includes(dato)){
+            variable.play();
+
+         }else{
+            window.elemnto.push(dato);  
+            window.global=window.global+1;
+            variable.play();
+            console.log(global);
+         }
+
+     }
+
+    else{
+        if (window.elemnto.includes(dato)){
+            variable.play();
+
+         }
+    }
+}
+ var auxmaster;
+function video(idvideo,dato){
+var variable=document.getElementById(idvideo);
+window.domino.push(variable);
+console.log(window.domino);
+console.log("TAMANO"+window.domino.length)
+
+if(window.domino.length==2){
+    auxmaster=window.domino[0];
+    auxmaster.pause();
+ 
+  
+}
+
+    if (window.global < 2){
+ 
+ if (window.elemnto.includes(dato)){
+    variable.play();
+
+    }else{
+        window.elemnto.push(dato);  
+        window.global=window.global+1;
+        variable.play();
+         console.log(global);
+    }
+
+}
+
+        else{
+        if (window.elemnto.includes(dato)){
+            variable.play();
+
+            }
+}
+}
+
+
+
+
+</script>   
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">   
+</head>
+<body>
+<audio id="click1"><source src="audios/audio20_i1u2t10.mp3" type="audio/mp3"></audio>
+
+
+<div class="dialog-background" id="retroFinal" style="display: none;">
+    <div class="dialog-loading-wrapper">
+        <div class="dialog-loading-icon">
+            <!-- <img id="botonCerrarRetro" src="imagenes/botonCerrar.png" alt="boton cerrar" /> -->
+            <div id="retroFinalMensaje">
+                Great job!
+                <br />
+                <button id="botonCerrarRetro">Play again</button>
+            </div>
+
+        </div>
+    </div>
+</div> 
+
+    <!-- <h1 class="headings actividad">Tipo de actividad</h1> -->
+    <i class="icon-horizontal-icon icono"></i>
+    <h2 class="headings-int under-li">Título de la actividad</h2><br />
+	<p>Instrucciones (pedagógica y técnica) de la actividad</p>
+
+<div id="bloqueCartas" class="row bonito">
+    <div id="Parte1" >
+<!--
+        <div class="contenedorCarta " data-respuesta="par3" onClick="sonido('audio1',5)"><div class="cuadrito cerrado"><div class="caraRespuesta parte1"><div><script> var texto= imagen(); </script></div></div><div class="caraTapa cubridor parte1"></div></div></div>
+        <div class="contenedorCarta " data-respuesta="par4" onClick="sonido('audio2',7)"><div class="cuadrito cerrado"><div class="caraRespuesta parte1"><div><audio id="audio2" src="audios/audio7_i1u2t10.mp3" type="audio/mpeg" preload></audio><script> var texto= imagen(); </script></div></div><div class="caraTapa cubridor parte1"></div></div></div>
+   
+     <div class="contenedorCarta "  data-respuesta="par1" onClick="video('vid1',1)"><div class="cuadrito cerrado"><div class="caraRespuesta parte1"><div> <video id="vid1"src="video/patol.mp4" width="80" height="100" ></video></div></div><div class="caraTapa cubridor parte1"></div></div></div>
+        <div class="contenedorCarta "  data-respuesta="par2" onClick="video('vid2',3)">       <div class="cuadrito cerrado"><div class="caraRespuesta parte1"><div><video id="vid2"src="video/gato.mp4" width="80" height="100" ></video></div></div><div class="caraTapa cubridor parte1"></div></div>   </div>
+ 
+        <div class="contenedorCarta " data-respuesta="par5" onClick="sonido(click9,9)"><div class="cuadrito cerrado"><div class="caraRespuesta parte1"><div><script> var texto= imagen(); </script></div></div><div class="caraTapa cubridor parte1"></div></div></div>
+        <div class="contenedorCarta  " data-respuesta="par6" onClick="sonido(click11,11)"><div class="cuadrito cerrado"><div class="caraRespuesta parte1"><div><script> var texto= imagen(); </script></div></div><div class="caraTapa cubridor parte1"></div></div></div>
+        <div class="contenedorCarta " data-respuesta="par7" onClick="sonido(click13,13)"><div class="cuadrito cerrado"><div class="caraRespuesta parte1"><div><script> var texto= imagen(); </script></div></div><div class="caraTapa cubridor parte1"></div></div></div>
+        <div class="contenedorCarta " data-respuesta="par8" onClick="sonido(click15,15)"><div class="cuadrito cerrado"><div class="caraRespuesta parte1"><div><script> var texto= imagen(); </script></div></div><div class="caraTapa cubridor parte1"></div></div></div>
+    
+        <div class="contenedorCarta " data-respuesta="par9" onClick="sonido(click17,17)"><div class="cuadrito cerrado"><div class="caraRespuesta parte1"><div><script> var texto= imagen(); </script></div></div><div class="caraTapa cubridor parte1"></div></div></div>
+        <div class="contenedorCarta " data-respuesta="par10" onClick="sonido(click19,19)"><div class="cuadrito cerrado"><div class="caraRespuesta parte1"><div><script> var texto= imagen(); </script></div></div><div class="caraTapa cubridor parte1"></div></div></div>    
+        <div class="contenedorCarta " data-respuesta="par11" onClick="sonido(click21,21)"><div class="cuadrito cerrado"><div class="caraRespuesta parte1"><div><script> var texto= imagen(); </script></div></div><div class="caraTapa cubridor parte1"></div></div></div>
+        <div class="contenedorCarta " data-respuesta="par12" onClick="sonido(click23,23)"><div class="cuadrito cerrado"><div class="caraRespuesta parte1"><div><script> var texto= imagen(); </script></div></div><div class="caraTapa cubridor parte1"></div></div></div>
+
+    
+        <div class="contenedorCarta " data-respuesta="par13" onClick="sonido(click25,25)"><div class="cuadrito cerrado"><div class="caraRespuesta parte1"><div><script> var texto= imagen(); </script></div></div><div class="caraTapa cubridor parte1"></div></div></div>
+        <div class="contenedorCarta " data-respuesta="par14" onClick="sonido(click27,27)"><div class="cuadrito cerrado"><div class="caraRespuesta parte1"><div><script> var texto= imagen(); </script></div></div><div class="caraTapa cubridor parte1"></div></div></div>
+        <div class="contenedorCarta " data-respuesta="par15" onClick="sonido(click29,29)"><div class="cuadrito cerrado"><div class="caraRespuesta parte1"><div><script> var texto= imagen(); </script></div></div><div class="caraTapa cubridor parte1"></div></div></div>
+    -->
+    </div>
+
+
+
+    <div id="Parte2" >
+       <!-- 
+        <div class="contenedorCarta  " data-respuesta="par1" onClick="video('vid1u2',2)">   <div class="cuadrito cerrado">    <div class="caraRespuesta parte2"><div><video id="vid1u2"src="video/patol.mp4" width="80" height="100" ></video></div></div>   <div class="caraTapa cubridor parte2"></div>  </div></div>
+       
+        <div class="contenedorCarta  " data-respuesta="par2" onClick="video('vid2u2',4)"><div class="cuadrito cerrado"><div class="caraRespuesta parte2"><div><video id="vid2u2"src="video/gato.mp4" width="80" height="100" ></video></div></div><div class="caraTapa cubridor parte2"></div></div></div>
+    <div class="contenedorCarta  " data-respuesta="par3" onClick="sonido(click6,6)"><div class="cuadrito cerrado"><div class="caraRespuesta parte2"><div><script> var texto= imagen(); </script></div></div><div class="caraTapa cubridor parte2"></div></div></div>
+    
+        <div class="contenedorCarta " data-respuesta="par4" onClick="sonido(click8,8)"><div class="cuadrito cerrado"><div class="caraRespuesta parte2"><div><script> var texto= imagen(); </script></div></div><div class="caraTapa cubridor parte2"></div></div></div>
+        <div class="contenedorCarta " data-respuesta="par5" onClick="sonido(click10,10)"><div class="cuadrito cerrado"><div class="caraRespuesta parte2"><div><script> var texto= imagen(); </script></div></div><div class="caraTapa cubridor parte2"></div></div></div>
+        <div class="contenedorCarta " data-respuesta="par6" onClick="sonido(click12,12)"><div class="cuadrito cerrado"><div class="caraRespuesta parte2"><div><script> var texto= imagen(); </script></div></div><div class="caraTapa cubridor parte2"></div></div></div>
+   
+        <div class="contenedorCarta " data-respuesta="par7" onClick="sonido(click14,14)"><div class="cuadrito cerrado"><div class="caraRespuesta parte2"><div><script> var texto= imagen(); </script></div></div><div class="caraTapa cubridor parte2"></div></div></div>
+        <div class="contenedorCarta " data-respuesta="par8" onClick="sonido(click16,16)"><div class="cuadrito cerrado"><div class="caraRespuesta parte2"><div><script> var texto= imagen(); </script></div></div><div class="caraTapa cubridor parte2"></div></div></div>
+        <div class="contenedorCarta " data-respuesta="par9" onClick="sonido(click18,18)"><div class="cuadrito cerrado"><div class="caraRespuesta parte2"><div><script> var texto= imagen(); </script></div></div><div class="caraTapa cubridor parte2"></div></div></div>
+  
+        <div class="contenedorCarta " data-respuesta="par10" onClick="sonido(click20,20)"><div class="cuadrito cerrado"><div class="caraRespuesta parte2"><div><script> var texto= imagen(); </script></div></div><div class="caraTapa cubridor parte2"></div></div></div>
+        <div class="contenedorCarta " data-respuesta="par11" onClick="sonido(click22,22)"><div class="cuadrito cerrado"><div class="caraRespuesta parte2"><div><script> var texto= imagen(); </script></div></div><div class="caraTapa cubridor parte2"></div></div></div>
+        <div class="contenedorCarta " data-respuesta="par12" onClick="sonido(click24,24)"><div class="cuadrito cerrado"><div class="caraRespuesta parte2"><div><script> var texto= imagen(); </script></div></div><div class="caraTapa cubridor parte2"></div></div></div>
+  
+        <div class="contenedorCarta " data-respuesta="par13" onClick="sonido(click26,26)"><div class="cuadrito cerrado"><div class="caraRespuesta parte2"><div><script> var texto= imagen(); </script></div></div><div class="caraTapa cubridor parte2"></div></div></div>
+        <div class="contenedorCarta " data-respuesta="par14" onClick="sonido(click28,28)"><div class="cuadrito cerrado"><div class="caraRespuesta parte2"><div><script> var texto= imagen(); </script></div></div><div class="caraTapa cubridor parte2"></div></div></div>
+        <div class="contenedorCarta " data-respuesta="par15" onClick="sonido(click30,30)"><div class="cuadrito cerrado"><div class="caraRespuesta parte2"><div><script> var texto= imagen(); </script></div></div><div class="caraTapa cubridor parte2"></div></div></div>
+    -->
+    </div>
+
+     <div class="retroBien col-md-2 col-md-offset-5" id="retrocorrecta" style="display: none;">Excellent! Keep on working the same way</div>
+    <div class="retroMal col-md-6 col-md-offset-3" id="retroincorrecta" style="display: none;">Listen to the audio again, and pay attention to the information required in the questions marked as wrong.</div>
+   
+    <div class="pager col-md-12 col-lg-12 col-sm-12 col-xs-12">
+    <div class="barraInferior">
+    <input type="button" id= "revisar" name="nombre1" class="btn btn-primary revisar "   ></button>
+    <input type="button" id= "revisarcont"  name="nombre1" class="btn btn-primary revisar "  style="display: none" ></button>   
+    <input type="button" id= "pasar"  name="nombre1" class="btn btn-primary revisar " style="display: none"  ></button> 
+    <input type="button" id= "botonCerrarRetroplus"  name="nombre1" class="btn btn-primary revisar "  style="display: none" ></button> 
+</div>   
+
+    
+    
+</div>
+
+
+   
+
+
+</div>
+
+<audio id="audioRetroBien">
+    <source src="audios/correct.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+<audio id="audioRetroMal">
+    <source src="audios/wrong.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+
+</body>
+</html>
