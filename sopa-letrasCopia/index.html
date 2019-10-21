@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<head>
+  <title>Sopa de letras</title>
+
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/sweetalert.css">
+
+  <!-- <script language="javascript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>  -->
+  <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+
+  <script type="text/javascript" src="js/wordfind.js"></script> 
+  <script type="text/javascript" src="js/wordfindgame.js">var patrono=[];var words = [];</script> 
+  <script src="js/sweetalert.min.js"></script> 
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="./SCORM/conectividadSCORM.js"></script>
+  <script type="text/javascript" src="./SCORM/conectividadSCORM.js"></script>
+  <script type="text/javascript" src="./SCORM/barraDeInfo.js"></script>
+  <script type="text/javascript" src="js/listaReactivos.js"></script> 
+  <script type="text/javascript" src="js/configRecurso.js"></script> 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/> 
+</head>
+<body>
+    <div class="container">
+        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+            <!-- <h1 class="headings actividad">Tipo de actividad</h1> -->
+            <i class="icon-horizontal-icon icono"></i>
+            <h2 class="headings-int">Autoevaluación. La prueba</h2>
+            <br/>
+            <p>Las pruebas obtenidas directamente a través de actos de tortura y de cualquier otra violación a derechos humanos,
+               así como las pruebas obtenidas por medios legales pero derivadas de dichos actos, podrán ser admitidas y valoradas en juicio, 
+               en aquellos casos en que se solicite su inclusión a fin de probar los hechos de tortura u otras violaciones a derechos humanos de los que fue objeto una persona,
+               y en contra de aquella que sea investigada o imputada por la comisión de tales hechos.
+              <br/>
+              Con base en lo que ha aprendido a lo largo del módulo, encuentre las siguientes palabras
+              </p>
+        </div>
+
+        <div class="row" style="margin: auto">
+            <div id='juego' class="col-sm-12 col-md-6"></div>
+            <div id='Palabras' style="text-align:center" class="col-sm-12 col-md-6"></div>
+        </div>
+        <div class="row">
+            <div style="text-align:center">
+                <button id='solve'>Ver respuestas</button>
+                <button id='again' onclick="location.reload();">Reiniciar</button>
+            </div>
+        </div>
+        </div>
+    <script>
+if (ambSCORM) {
+      //Inicio carga SCORM
+      if (parent.conectividadSCORM === undefined) {
+        console.log("Actividad en documento, es con try");
+        try {
+          var conexion = conectividadSCORM.conectarYComenzar();
+          console.log("actividad:: -> ", conexion);
+          conectividadSCORM.iniciarObjetivo(idObjetivo);           // inicializa la actividad
+          if (barraSCORM) {conectividadSCORM.actualizarBarra()}    // actualiza la barra de avance
+          conectividadSCORM.salvar();                              // guarda el status
+        } catch(e){
+        console.warn("Error con conectividad SCORM");
+        }
+      }
+      else {
+        console.log("Actividad en frame, es con parent");
+        if (parent.document.readyState === "complete"){
+          iniciarSCORM();
+          console.log("ya había cargado");
+        }
+        else {
+          console.log("agregó listener");
+          parent.addEventListener("load", function(){
+            iniciarSCORM();
+          });
+        }
+        function iniciarSCORM(){
+          var conexion = parent.conectividadSCORM.conectarYComenzar();
+          console.log("actividad:: -> ", conexion);
+          parent.conectividadSCORM.iniciarObjetivo(idObjetivo);          // inicializa la actividad
+          if (barraSCORM) {parent.conectividadSCORM.actualizarBarra()}   // actualiza la barra de avance
+          parent.conectividadSCORM.salvar();                             // guarda el status
+        }
+      }
+      //Fin carga SCORM
+    }
+
+    // var words = ["Been", "Born", "Cut", "Done", "Hung", "Set", "Spoken", "Understood", "Written", "Won"];
+    // var words = ["Been", "Born", "Become", "Begun", "Broken", "Brought", "Built", "Bought", "Caught", "Chosen", "Come", "Cut", "Done", "Drawn", "Eaten", "Fed", "Felt", "Fought", "Found", "Forgotten", "Forgiven", "Frozen", "Given", "Gone", "Hung", "Had", "Heard", "Hit", "Hurt", "Kept", "Known", "Learnt", "Left", "Lost", "Made", "Meant", "Met", "Mistaken", "Paid", "Put", "Read", "Run", "Said", "Seen", "Sold", "Sent", "Set", "Spoken", "Written", "Won"];
+    // var words = ["Arisen", "Been", "Born", "Beaten", "Become", "Begun", "Bent", "Bound", "Bitten", "Bled", "Blown", "Broken", "Brought", "Built", "Burnt", "Burst", "Bought", "Caught", "Chosen", "Come", "Cost", "Cut", "Dealt", "Dug", "Done", "Drawn", "Dreamt", "Eaten", "Fallen", "Fed", "Felt", "Fought", "Found", "Flown", "Forbidden", "Forgotten", "Forgiven", "Frozen"];
+    // var words = ["Gotten", "Given", "Gone", "Grown", "Hung", "Had", "Heard", "Hidden", "Hit", "Hurt", "Kept", "Knelt", "Known", "Laid", "Leant", "Learnt", "Left", "Lent", "Let", "Lit", "Lost", "Made", "Meant", "Met", "Mistaken", "Paid", "Put", "Quit", "Read", "Ridden", "Risen", "Run", "Said", "Seen", "Sold", "Sent", "Set", "Shaken"];
+    // var words = ["Shone", "Shot", "Shown", "Shut", "Sung", "Sunk", "Sit", "Slept", "Smelt", "Spoken", "Spelt", "Spent", "Spilt", "Spun", "Split", "Spoilt", "Spread", "Stood", "Stolen", "Stuck", "Stung", "Struck", "Stricken", "Sworn", "Swum", "Swung", "Taken", "Taught", "Torn", "Told", "Thought", "Thrown", "Understood", "Waken", "Won", "Wound", "Withdrawn", "Written"];
+    
+    //Se crea el tablero de la sopa de letras, es necesario pasar el arreglo de palabras
+    var gamePuzzle = wordfindgame.create(words, '#juego', '#Palabras'); 
+      //configuracion del tablero, se recomienda dejar la actual
+    var puzzle = wordfind.newPuzzle(words,{height: 50, width:50, fillBlanks: true});
+    wordfind.print(puzzle);   
+        //caracteristica para avilitar la solucion rapida
+    $('#solve').click( function() {wordfindgame.solve(gamePuzzle, words);});
+        
+    </script>
+    
+</body>
+</html>
